@@ -24,7 +24,12 @@ body{
 button, input {
     margin: 1px;
 }
-
+.twitch{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
 .logo{
     width: 20vh;
     grid-column-start: 2;
@@ -90,11 +95,12 @@ div{
         grid-row-start: 6;
         grid-row-end: 6;
         font-size: 20px;
-        display: flex;
-        flex-direction: column;
+        /*display: flex;
+        flex-direction: column;*/
 }
 #playerForms{
-
+    display: flex;
+    flex-direction: column;
 }
 #data{
     justify-self: center;

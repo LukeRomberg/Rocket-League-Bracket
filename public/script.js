@@ -6,7 +6,9 @@ var bracketHouse = document.getElementById('bracketHouse')
 var dataAccess = document.getElementsByClassName('dataAccess')[0];
 var dataAccessHouse = document.getElementsByClassName('dataAccessHouse')[0];
 var playerData = document.getElementById('data')
+var twitch = document.getElementsByClassName('twitch')[0];
 var winners = []
+
 form.addEventListener('submit', function(event){
     event.preventDefault()
     var playerNumber = event.target.elements.playerNumberInput.valueAsNumber
@@ -99,28 +101,34 @@ bracket.addEventListener('click', function(event){
         winnerLabelDiv.append(winnerLabel, winner)
         newForm.append(formLabel, goals, assists, saves, shots, winnerLabelDiv, formSubmit)
         playerForm.append(newForm)
+        dataAccessHouse.style.display = 'none'
 })
 playerForm.addEventListener('submit', function(event){
     event.preventDefault()
     var counter = 0
     while (counter < event.target.elements.length -2){
         var pTag = document.createElement('p')
+        var h2 = document.createElement('h2')
         if (counter === 0){
-            pTag.append(event.target.children[counter].innerText)
+            h2.append(event.target.children[counter].innerText + " ")
             pTag.append(event.target.elements[counter].attributes[0].nodeValue + ' '+ event.target.elements[counter].value)
         }else {
         pTag.append(event.target.elements[counter].attributes[0].nodeValue + ' '+ event.target.elements[counter].value)
         }
-        playerData.append(pTag)
+        playerData.append(h2, pTag)
         counter++
     }
     if (event.target.children[5].children[1].checked == true){
         winners.push(event.target.children[0].innerText);
     }
-    let dataAccess = document.createElement('button')
-    dataAccess.setAttribute('class', 'dataAccess btn btn-dark')
-    dataAccess.innerText = 'Player Data'
-    dataAccessHouse.append(dataAccess)
+    if (dataAccessHouse.innerHTML == ''){
+        let dataAccess = document.createElement('button')
+        dataAccess.setAttribute('class', 'dataAccess btn btn-dark')
+        dataAccess.innerText = 'Player Data'
+        dataAccessHouse.append(dataAccess)
+    }
+    playerData.style.display === 'none'
+    dataAccessHouse.style.display = 'flex'
     playerForm.innerHTML = ''
 })
 
@@ -134,17 +142,19 @@ nextRoundButton.addEventListener('click', function(event){
                 var li = document.createElement('button')
                 var indent = document.createElement('br')
                 li.setAttribute('id','teamNumber' + [i])
-                li.setAttribute('class','team')
+                li.setAttribute('class','team btn btn-dark')
                 li.innerText = winners[i]
                 winnersBracket.append(li, indent)
         }
     }
+    playerData.style.display === 'none'
     winners = []
 })
-dataAccessHouse.addEventListener('click', function(event){
+function dataShow(){
     if (playerData.style.display === 'none') {
        playerData.style.display = 'flex';
    } else {
        playerData.style.display = 'none';
    }
-})
+}
+dataAccessHouse.addEventListener('click', dataShow)

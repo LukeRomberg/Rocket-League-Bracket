@@ -8,6 +8,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
+        <section class="twitch">
+            <iframe
+                src="http://player.twitch.tv/?channel=rocketleague"
+                height="<height>"
+                width="<width>"
+                frameborder="<frameborder>"
+                scrolling="no"
+                allowfullscreen="true">
+            </iframe>
+        </section>
         <img src="logo.png" alt="RL Stat Bracket Image" class="logo">
         <form class="playerNumberButton">
             <label for="players">How many teams are there?</label>
@@ -20,7 +30,7 @@
             </section>
         <section id="nextRoundButton"></section>
         <section id="playerForm"></section>
-        <div class="dataAccessHouse"></div>
+        <div class="dataAccessHouse" style="display: none;"></div>
         <section id="data" method="post"></section>
         <script src="script.js" charset="utf-8"></script>
     </body>
