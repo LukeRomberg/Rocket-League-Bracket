@@ -2,10 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Rocket League Bracket</title>
+        <title>RL Stat Bracket</title>
         <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" charset="utf-8" src="jquery.js"></script>
     </head>
     <body>
+        <h1>RL Stat Bracket</h1>
         <form class="playerNumberButton">
             <label for="players">How many teams are there?</label>
             <input type="number" name="playerNumberInput" placeholder="16">
@@ -14,8 +16,15 @@
         <form class="playerNames" method="post">
 
         </form>
-        
-        <script type="text/javascript" charset="utf-8" src="jquery.js"></script>
+        <div id="bracket">
+
+        </div>
+        <section id="playerForm">
+
+        </section>
+        <form id="data" method="post">
+
+        </form>
         <script src="script.js" charset="utf-8"></script>
     </body>
 </html>
