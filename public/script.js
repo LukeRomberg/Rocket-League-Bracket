@@ -3,6 +3,9 @@ var playerNames = document.getElementsByClassName('playerNames')[0];
 var nextRoundButton = document.getElementById('nextRoundButton')
 var bracket = document.getElementById('bracket')
 var bracketHouse = document.getElementById('bracketHouse')
+var dataAccess = document.getElementsByClassName('dataAccess')[0];
+var dataAccessHouse = document.getElementsByClassName('dataAccessHouse')[0];
+var playerData = document.getElementById('data')
 var winners = []
 form.addEventListener('submit', function(event){
     event.preventDefault()
@@ -101,19 +104,26 @@ playerForm.addEventListener('submit', function(event){
     event.preventDefault()
     var counter = 0
     while (counter < event.target.elements.length -2){
+        var pTag = document.createElement('p')
         if (counter === 0){
-            data.append(event.target.children[counter].innerText)
-            data.append(event.target.elements[counter].attributes[0].nodeValue + ' '+ event.target.elements[counter].value)
+            pTag.append(event.target.children[counter].innerText)
+            pTag.append(event.target.elements[counter].attributes[0].nodeValue + ' '+ event.target.elements[counter].value)
         }else {
-        data.append(event.target.elements[counter].attributes[0].nodeValue + ' '+ event.target.elements[counter].value)
+        pTag.append(event.target.elements[counter].attributes[0].nodeValue + ' '+ event.target.elements[counter].value)
         }
+        playerData.append(pTag)
         counter++
     }
-    if (event.target.children[6].checked == true){
+    if (event.target.children[5].children[1].checked == true){
         winners.push(event.target.children[0].innerText);
     }
+    let dataAccess = document.createElement('button')
+    dataAccess.setAttribute('class', 'dataAccess btn btn-dark')
+    dataAccess.innerText = 'Player Data'
+    dataAccessHouse.append(dataAccess)
     playerForm.innerHTML = ''
 })
+
 nextRoundButton.addEventListener('click', function(event){
     if (winners.length === 0){
         alert('You must select winners.')
@@ -130,4 +140,11 @@ nextRoundButton.addEventListener('click', function(event){
         }
     }
     winners = []
+})
+dataAccessHouse.addEventListener('click', function(event){
+    if (playerData.style.display === 'none') {
+       playerData.style.display = 'flex';
+   } else {
+       playerData.style.display = 'none';
+   }
 })

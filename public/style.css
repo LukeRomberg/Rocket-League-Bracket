@@ -97,14 +97,13 @@ div{
 
 }
 #data{
-    visibility: hidden;
     justify-self: center;
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 7;
-    grid-row-end: 7;
-    font-size: 30px;
-    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 8;
+    grid-row-end: 8;
+    font-size: 15px;
+    display: none;
     flex-direction: column;
 }
 .team{
@@ -115,4 +114,12 @@ div{
     text-align: left;
     background-color: lightgrey;
     font-size: 20px;
+}
+.dataAccessHouse{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 7;
+    grid-row-end: 7;
+}
+.dataAccess{
 }
