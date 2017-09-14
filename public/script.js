@@ -1,14 +1,8 @@
 var form = document.getElementsByClassName('playerNumberButton')[0];
 var playerNames = document.getElementsByClassName('playerNames')[0];
+var nextRoundButton = document.getElementById('nextRoundButton')
 var bracket = document.getElementById('bracket')
-var bracket1 = document.getElementById('bracket1')
-var bracket2 = document.getElementById('bracket2')
-var bracket3 = document.getElementById('bracket3')
-var bracket4 = document.getElementById('bracket4')
-var bracket5 = document.getElementById('bracket5')
-var bracket6 = document.getElementById('bracket6')
-var bracket7 = document.getElementById('bracket7')
-var bracket8 = document.getElementById('bracket8')
+var winners = []
 form.addEventListener('submit', function(event){
     event.preventDefault()
     var playerNumber = event.target.elements.playerNumberInput.valueAsNumber
@@ -55,11 +49,11 @@ playerNames.addEventListener('submit', (event)=>{
         bracket.append(li)
         players.push(event.target.elements[i].value)
     }
-    // let button = document.createElement('button')
-    // button.setAttribute('type','submit')
-    // button.setAttribute('class','btn btn-dark')
-    // button.innerText = 'Next Round'
-    // bracket.append(button)
+    let button = document.createElement('button')
+    button.setAttribute('type','submit')
+    button.setAttribute('class','btn btn-dark')
+    button.innerText = 'Next Round'
+    nextRoundButton.append(button)
     hide(playerNames)
 })
 // bracket.addEventListener('submit', function(event){
@@ -88,9 +82,10 @@ bracket.addEventListener('click', function(event){
         saves.setAttribute('placeholder', 'Saves')
         shots.innerText = 'Shots'
         shots.setAttribute('placeholder', 'Shots')
-        winnerLabel.innerText = 'Move ' + event.target.innerText + ' on?'
+        winnerLabel.innerText = 'Did ' + event.target.innerText + ' win?'
         winner.setAttribute('type', 'checkbox')
         formSubmit.setAttribute('type', 'submit')
+        formSubmit.setAttribute('class', 'btn-dark')
         formSubmit.innerText = 'Submit'
         formLabel.innerText = event.target.innerText
         newForm.append(formLabel, goals, assists, saves, shots, winnerLabel, winner, formSubmit)
@@ -108,6 +103,25 @@ playerForm.addEventListener('submit', function(event){
         }
         counter++
     }
-    console.log(event);
+    if (event.target.children[6].checked == true){
+        winners.push(event.target.children[0].innerText);
+    }
     playerForm.innerHTML = ''
+})
+nextRoundButton.addEventListener('click', function(event){
+    if (winners.length === 0){
+        alert('You must select winners.')
+    }else{
+        var winnersBracket = document.createElement('div')
+        bracket.append(winnersBracket)
+        for (var i = 0; i < winners.length; i++) {
+                var li = document.createElement('button')
+                var indent = document.createElement('br')
+                li.setAttribute('id','teamNumber' + [i])
+                li.setAttribute('class','team')
+                li.innerText = winners[i]
+                winnersBracket.append(li, indent)
+        }
+    }
+    winners = []
 })
