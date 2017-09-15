@@ -19,6 +19,9 @@ Microsoft Excel.
 ## Used API's
 I imbedded a Twtich API. The official Rocket League Twitch stream will always populate in the top left of the screen.
 
+## Walkthrough
+[Click here to see the walkthrough on YouTube](https://www.youtube.com/watch?v=L4V2lGtR-kw)
+
 ## Screenshots
 ![alt text](https://github.com/LukeRomberg1/Rocket-League-Bracket/blob/master/Screen%20Shot%202017-09-15%20at%201.54.03%20PM.png)
 ![alt text](https://github.com/LukeRomberg1/Rocket-League-Bracket/blob/master/Screen%20Shot%202017-09-15%20at%201.54.28%20PM.png "Screenshot of team name entry page")
