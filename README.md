@@ -19,12 +19,10 @@ Microsoft Excel.
 ## Used API's
 I imbedded a Twtich API. The official Rocket League Twitch stream will always populate in the top left of the screen.
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/LukeRomberg1/Rocket-League-Bracket/blob/master/Screen%20Shot%202017-09-15%20at%201.54.03%20PM.png)
+![alt text](https://github.com/LukeRomberg1/Rocket-League-Bracket/blob/master/Screen%20Shot%202017-09-15%20at%201.54.28%20PM.png "Screenshot of team name entry page")
+![alt text](https://github.com/LukeRomberg1/Rocket-League-Bracket/blob/master/Screen%20Shot%202017-09-15%20at%201.54.47%20PM.png "First round of brackets with team names in")
+![alt text](https://github.com/LukeRomberg1/Rocket-League-Bracket/blob/master/Screen%20Shot%202017-09-15%20at%201.55.00%20PM.png "Put in player or team information for each match")
+![alt text](https://github.com/LukeRomberg1/Rocket-League-Bracket/blob/master/Screen%20Shot%202017-09-15%20at%201.55.17%20PM.png "Overview of individual player/team stats")
 
-Sceenshots
-Link to walkthrough video
-What API's you used
+
