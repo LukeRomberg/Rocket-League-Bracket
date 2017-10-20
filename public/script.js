@@ -49,10 +49,10 @@ playerNames.addEventListener('submit', (event)=>{
     event.preventDefault()
     for (var i=0;i<event.target.elements.length-1;i++){
         var li = document.createElement('button')
-        li.setAttribute('id','teamNumber' + [i])
-        li.setAttribute('class','team btn btn-secondary')
+        var spacer = document.createElement('div')
+        li.setAttribute('class','player')
         li.innerText = event.target.elements[i].value
-        bracketStart.append(li)
+        bracketStart.append(li, spacer)
         players.push(event.target.elements[i].value)
     }
     let button = document.createElement('button')
@@ -62,10 +62,6 @@ playerNames.addEventListener('submit', (event)=>{
     nextRoundButton.append(button)
     hide(playerNames)
 })
-// bracket.addEventListener('submit', function(event){
-//     event.preventDefault()
-//
-// })
 var data = document.getElementById('data')
 var playerForm = document.getElementById('playerForm')
 
@@ -103,6 +99,7 @@ bracket.addEventListener('click', function(event){
         playerForm.append(newForm)
         dataAccessHouse.style.display = 'none'
 })
+
 playerForm.addEventListener('submit', function(event){
     event.preventDefault()
     var counter = 0
@@ -124,7 +121,7 @@ playerForm.addEventListener('submit', function(event){
     if (dataAccessHouse.innerHTML == ''){
         let dataAccess = document.createElement('button')
         dataAccess.setAttribute('class', 'dataAccess btn btn-dark')
-        dataAccess.innerText = 'Player Data'
+        dataAccess.innerText = 'Team Data'
         dataAccessHouse.append(dataAccess)
     }
     playerData.style.display === 'none'
@@ -136,20 +133,21 @@ nextRoundButton.addEventListener('click', function(event){
     if (winners.length === 0){
         alert('You must select winners.')
     }else{
-        var winnersBracket = document.createElement('div')
+        var winnersBracket = document.createElement('section')
+        winnersBracket.setAttribute('class','nextRound')
         bracket.append(winnersBracket)
         for (var i = 0; i < winners.length; i++) {
                 var li = document.createElement('button')
-                var indent = document.createElement('br')
-                li.setAttribute('id','teamNumber' + [i])
-                li.setAttribute('class','team btn btn-dark')
+                var spacer = document.createElement('div')
+                li.setAttribute('class','player')
                 li.innerText = winners[i]
-                winnersBracket.append(li, indent)
+                winnersBracket.append(li, spacer)
         }
     }
     playerData.style.display === 'none'
     winners = []
 })
+
 function dataShow(){
     if (playerData.style.display === 'none') {
        playerData.style.display = 'flex';
